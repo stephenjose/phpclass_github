@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="ch02_future_value"/>
+	<buildpathentry kind="src" path="ch02_product_discount"/>
+	<buildpathentry kind="src" path="ch04_product_viewer"/>
+	<buildpathentry kind="src" path="Product Discount"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>
