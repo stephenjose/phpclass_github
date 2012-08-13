@@ -11,7 +11,7 @@
     	$category_id = 1;
     }//end else
 
-    // Get name for current category
+    // Get name for current category and store it in $category
     $query = "SELECT * FROM categories
               WHERE categoryID = $category_id";
     $category = $db->query($query);
