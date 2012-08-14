@@ -5,7 +5,7 @@
 
 	function get_categories()
 	{
-		global $db;
+		global $db;  
 		$query = 'select categoryName from categories';
 		
 		return $db->query($query);
@@ -22,5 +22,7 @@
 	
 		
 	}
+	
+	
 	
 ?>	

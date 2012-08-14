@@ -2,11 +2,13 @@
 	//this is a controller file in an MVC type layout.
 	//because of this, this file will not display anything to the screen, but will call other files to do that
 	
-	require 'model/categories.php';
+	require 'model/bikes.php';
 	
-	$categories = get_categories();
+	$bikeManufacturer = get_manufacturer();
 	
-	$products = get_products();
+	$bikeModel = get_model();
+	
+
 	
 	include 'views/list.php'; //calls the list.php file, which will display some html
 ?>	
