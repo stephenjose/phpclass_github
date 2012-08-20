@@ -20,4 +20,3 @@ include 'view/list.php';
 
 ?>
 
-<html><body>Hello World!</body></html>
