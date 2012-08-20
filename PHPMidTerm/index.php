@@ -16,6 +16,8 @@ ActiveRecord\Config::initialize(function($cfg)
 });
 /*end active record import for database connection*/
 
+include 'view/list.php';
+
 ?>
 
 <html><body>Hello World!</body></html>
