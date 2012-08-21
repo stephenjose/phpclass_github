@@ -11,18 +11,55 @@
 		exit();
 	}//end if
 
-	if(array_key_exists('nameInput', $_POST)){	//check for a value in the $_POST array (ie - has a form been submitted)
-		setcookie('username', $_POST['nameInput']);		//setcookie creates a cookie file on the local machine
-		$_COOKIE['username'] = $_POST['nameInput'];		//the $_COOKIE array variable is set using hte value from $_POST, so it can be used below (and elsewhere)
-	}
+	
+	/*active record import for database connection*/
+	require '../ActiveRecord/ActiveRecord.php';
+	
+	ActiveRecord\Config::initialize(function($cfg)
+	{
+		$cfg->set_model_directory('model');
+		$cfg->set_connections(
+				array(
+						'development' => 'mysql://root:@localhost/users',
+						'test' => 'mysql://username:password@localhost/test_database_name',
+						'production' => 'mysql://username:password@localhost/production_database_name'
+				)
+		);
+	});
+	/*end active record import for database connection*/
+	
+	
+	/*//controller logic
+	if(array_key_exists('action', $_POST)){
+		if($_POST['action'] == save){
+			
+		}//end if
+	}//end if*/
+	
+	if(array_key_exists('signup', $_POST) && isset($_POST['signup'])){
+		include 'view/signup.php';
+	}//end if	
+	elseif(array_key_exists('save', $_POST) && isset($_POST['save'])){	//check for a value in the $_POST array (ie - has a form been submitted)
+												//this is where the password will be validated
+		if($_POST['pwInput'] == 'Secret55'){
+			
+			setcookie('username', $_POST['nameInput']);		//setcookie creates a cookie file on the local machine
+			$_COOKIE['username'] = $_POST['nameInput'];		//the $_COOKIE array variable is set using hte value from $_POST, so it can be used below (and elsewhere)
+		
+		}//end if
+		else{
+			echo 'Incorrect Password';
+		}//end else
+			
+	}//end elseif
 	
 
 	if(array_key_exists('username', $_COOKIE)){  //'username' here is an index into the $_COOKIE array
 		include 'view/hello.php';	
 	}//end if
-	else{
-		include 'view/form.php';
-	}//end else
+	
+	include 'view/form.php';
+	
 	
 	
 
