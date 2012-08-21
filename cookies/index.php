@@ -32,17 +32,20 @@
 	//controller logic
 	if(array_key_exists('action', $_POST)){
 		if($_POST['action'] == 'signup'){
-			include 'view/signup.php';
+			include 'view/signup.php';//display signup page if the 'signup' button is pressed
 			exit();
 		}//end if
-		elseif($_POST['action'] == 'save'){
+		elseif($_POST['action'] == 'save'){	//if the 'save' button is presset, add the user info to the database and add a cookie so the user does not have to immediately login
 			addUser($_POST);
 			addCookie($_POST['username']);
 		}//end elseif
-		elseif($_POST['action'] == 'signin'){
+		elseif($_POST['action'] == 'signin'){ //when the user signs in, validate the user then add a cookie on successful validation.
 			if(validateUser($_POST)){
-				
+				addcookie($_POST['username']);
 			}//end if
+			else{
+				echo 'invalid user';
+			}//end else
 		}//end elseif
 		
 	}//end if
