@@ -1,5 +1,5 @@
 <?php
-class User extends ActiveRecord\Model{   //extends the ActiveRecord namespace
-
+class User extends ActiveRecord\Model{
+	
 }
 ?>

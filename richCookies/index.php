@@ -27,20 +27,18 @@ ActiveRecord\Config::initialize(function($cfg)
 
 require 'model/helpers.php';
 //controller logic
-print_r($_POST);
-if(array_key_exists('action', $_POST)){
-	if($_POST['action'] == 'signup'){
-		include 'views/signup.php';
-		exit();
-	}elseif($_POST['action'] == 'save'){
-		addUser($_POST);
+$action = array_key_exists('action', $_POST)?$_POST['action']:'';
+if($action == 'signup'){
+	include 'views/signup.php';
+	exit();
+}elseif($action == 'save'){
+	addUser($_POST);
+	addCookie($_POST['username']);
+}elseif($action == 'signin'){
+	if(validateUser($_POST)){
 		addCookie($_POST['username']);
-	}elseif($_POST['action'] == 'signin'){
-		if(validateUser($_POST)){
-			addCookie($_POST['username']);
-		}else{
-			echo 'invalid user';
-		}
+	}else{
+		echo 'invalid user';
 	}
 }
 if(array_key_exists('username', $_COOKIE)){
