@@ -27,9 +27,13 @@
 	if($action == 'Subscribe'){
 		$oEmail = new Email;	//create a new object to store emails
 		$oEmail->email = $_POST['email'];   //assigning the email field of the post array to the $oEmail object variable
-		$oEmail->save();	//save object to database		
-		
-	}elseif($action == 'Unsubscribe'){
+		$oEmail->save();	//save object to database	
+	}elseif($action == 'Delete'){
+			$oEmail = Email::find_by_email($_GET['email']);
+			if($oEmail->delete()){
+				echo "1 Email Deleted";				
+			}//end if				
+	}elseif($action == 'Unsubscribe'){		
 		$oEmail = Email::find_by_email($_GET['email']);
 		if($oEmail->delete()){
 			echo "You have been Unsubscribed";			
@@ -37,15 +41,18 @@
 			echo "Unsubscribe failed";
 		}//end if else
 			exit();
+	}elseif($action == 'Send'){
+		include 'model/helpers.php';
+		sendEmails();
 	}//end elseif
 	
 	
 	
 	
-	if($action == 'Edit List'){	//if the Edit List button was pressed on the form
-		include 'views/edit.php';
-	}else{
+	if($action == '' || $action == 'Send'){	//if the Edit List button was pressed on the form
 		include 'views/email.php';
+	}else{
+		include 'views/edit.php';
 	}//end else
 	
 	
