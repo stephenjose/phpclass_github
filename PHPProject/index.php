@@ -1,3 +1,21 @@
+<?php
+/*active record import for database connection*/
+require '../ActiveRecord/ActiveRecord.php';
+
+ActiveRecord\Config::initialize(function($cfg)
+{
+	$cfg->set_model_directory('model');
+	$cfg->set_connections(
+			array(
+					'development' => 'mysql://root:@localhost/widgets',
+					'test' => 'mysql://username:password@localhost/test_database_name',
+					'production' => 'mysql://username:password@localhost/production_database_name'
+			)
+	);
+});
+/*end active record import for database connection*/
+?>
+
 <!DOCTYPE html>
 
 <!--
@@ -14,6 +32,8 @@
 	External files:
 		./css/main.css
 -->	
+
+
 	
 <html lang="en">
 <head>
@@ -39,7 +59,7 @@
 	-->
 	
 	<!-- CSS link-->
-	<link rel="stylesheet" href="./view/css/main.css" />
+	<link rel="stylesheet" href="./views/css/main.css" />
 	<!-- Google Webfonts Link -->
 	<link href="http://fonts.googleapis.com/css?family=Pompiere" rel="stylesheet" />
 	
@@ -59,7 +79,7 @@
 			
 			<div id="main">
 				<div id="widgets">
-					<img src="./view/images/true-mountain-biker.jpg" alt="Cycling Widgets" title="" width="960"
+					<img src="./views/images/true-mountain-biker.jpg" alt="Cycling Widgets" title="" width="960"
 						height="295" />
 				</div>
 				
@@ -69,7 +89,7 @@
 						We sell all kinds of things for dedicated cyclists of all types.
 					</p>
 					<p>
-						Whether you like white knuckling it down a hillside or powering down a stretch of pavement, we have a widget for you!
+						Whether you like white knuckling down a hillside or powering down a stretch of pavement, we have a widget for you!
 						Just select which widget pack most interests you and fill out the purchase form below.
 					</p>
 					<p>
@@ -77,30 +97,13 @@
 					</p>
 				</section>
 				
-				<form action="." method="POST">
-					I Love widgets - send me some!
-					
-					<div id="widgetpics">
-						<img src="./view/images/mountainbike.jpg" width="100" height="100" /><input type="radio" name="widgetradio" />
-						<img src="./view/images/roadbike.jpg" width="100" height="100" /><input type="radio" name="widgetradio" />
-						<img src="./view/images/commuterbike.jpg" width="100" height="100" /><input type="radio" name="widgetradio" />
-						<img src="./view/images/dirtjumperbike.jpg" width="100" height="100" /><input type="radio" name="widgetradio" />
-					
-					
-					</div>
+				<?php if(array_key_exists('submit', $_POST)){
+					include './views/orderdisplay.php';
+				}else{
+					include 'views/orderform.php';
+				}//end else
 				
-					<label for="name">Name: </label><input type="text" name="name" />					
-					
-					Address Information
-					<label for="street">Street: </label><input type="text" name="street" />
-					<label for="city">City: </label><input type="text" name="city" />
-					<label for="province">Province: </label><input type="text" name="province" />
-					
-					Contact Information
-					<label for="phone">Phone Number: </label><input type="text" name="phone" />
-					<label for="email">Email Address: </label><input type="text" name="email" />
-				
-				</form>
+				?>
 				
 				
 				

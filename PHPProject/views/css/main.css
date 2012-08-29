@@ -1,0 +1,183 @@
+/*
+	Website:  		Raja Responsive Design 
+	Developer:		Stephen Jose
+	Created On:
+	Revised On:
+	CSS Version: 	3
+	
+	Purpose:
+	
+	Related Files:
+		index.html
+		
+*/
+
+/* ------------------ Reset ------------------ */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
+pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, 
+samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article,
+aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav,
+output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1.25;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ------------------ End Reset ------------------ */
+
+#container {
+	max-width: 960px;
+	font-family: Constantina, Georgia, 'Nimbus Roman No9 L', serif;
+	background-color: #E5CA85;
+	margin: 0 auto;
+}
+
+
+/* ------------------ Header ------------------ */
+header{
+	background-color: #2b2b2b;
+	text-align: center;
+}
+
+header h1{	
+	display: inline-block;
+	font-size: 400%;
+	color: #fff;
+	padding-bottom: 40px;
+}
+
+
+/* ------------------ #Main ------------------ */
+
+#main widgets{
+	background-color: #2b2b2b;
+}
+
+#main #widgets+section{
+	padding: 10px;
+	font-family:Constantia,Georgia,'Nimbus Roman No9 L',serif;
+	text-align: center;
+}
+	
+	#main #widgets+section h2{
+		font-size: 200%;
+		font-weight: 700;
+	}
+	
+	#main #widgets+section p{
+		padding: 5px 0;
+		font-size: 125%;
+	}
+	
+#main #widgets img{
+	border-radius: 40px 40px 0 0;
+	margin-top: -40px;
+}	
+	
+#main form h1{
+	color: #E5CA85;
+	background-color: #2b2b2b;
+	border-top: 10px solid #fff;
+	border-radius: 40px 40px 0 0;
+	text-align: center;
+	font-size: 200%;	
+}
+
+#main form p{
+	padding: 10px 20%;
+	font-size: 120%;
+	text-align: center;
+}
+
+#main #widgetpics{
+	margin: 0 auto;
+	border: 2px solid #fff;
+	padding: 5px;	
+	text-align: center;
+	
+}
+
+	#main #widgettitle{
+		
+		font-size: 120%;
+	}
+
+	#main #widgetpics tr{
+		float: left;
+		border-right: 2px solid #fff;
+	}
+
+	#main #widgetpics td{
+		display: block;
+		margin: 5px;
+		border: 1px solid #999;
+	}
+	
+		#main #widgetpics td span{
+			font-size: 80%;
+		}
+	
+	#main #widgetpics input{
+		width: 30px;
+	}
+
+#main #contactform{
+	width: 68%;
+	margin: 0 auto;
+}	
+	
+	#main #contactform ul{
+		
+		border: 1px solid #fff;
+		margin: 10px 30px;
+	}	
+	
+		#main #contactform ul>ul{
+			clear: left;
+		}	
+		
+
+
+
+	
+
+		
+		
+/* ------------------ Footer ------------------ */	 
+
+footer{
+	background-color: #2b2b2b;
+	text-align: center;
+}
+
