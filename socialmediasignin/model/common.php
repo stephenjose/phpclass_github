@@ -2,7 +2,7 @@
 define('KEY', '95842300516.apps.googleusercontent.com');
 define('SECRET', 'JB2DBmIDDKRmNgsbcmwK4yKm');
 
-define('CALLBACK_URL', 'http://localhost/phpclass_github/socialmediasignin/');
+define('CALLBACK_URL', 'http://'. $_SERVER['HTTP_HOST'] . '/phpclass_github/socialmediasignin/');
 define('AUTHORIZATION_ENDPOINT', 'https://accounts.google.com/o/oauth2/auth');
 define('ACCESS_TOKEN_ENDPOINT', 'https://accounts.google.com/o/oauth2/token');
 
@@ -15,16 +15,14 @@ define('ACCESS_TOKEN_ENDPOINT', 'https://accounts.google.com/o/oauth2/token');
  *             postvals - post values
  **************************************************************************/
 function run_curl($url, $method = 'GET', $postvals = null){
-	/*$response = file_get_contents($url);
-	return $response;*/ 
-	
     $ch = curl_init($url);
     
     //GET request: send headers and return data transfer
     if ($method == 'GET'){
         $options = array(
             CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => 1
+            CURLOPT_RETURNTRANSFER => 1,
+        	CURLOPT_SSL_VERIFYPEER => false
         );
         curl_setopt_array($ch, $options);
     //POST / PUT request: send post object and return data transfer
@@ -32,17 +30,21 @@ function run_curl($url, $method = 'GET', $postvals = null){
         $options = array(
             CURLOPT_URL => $url,
             CURLOPT_POST => 1,
-            CURLOPT_POSTFIELDS => $postvals,
-            CURLOPT_RETURNTRANSFER => 1
+            CURLOPT_POSTFIELDS => http_build_query($postvals),
+            CURLOPT_RETURNTRANSFER => 1,
+        	CURLOPT_SSL_VERIFYPEER => false
         );
         curl_setopt_array($ch, $options);
     }
-    
-    $response = curl_exec($ch);
+    if( ! $response = curl_exec($ch)) 
+    { 
+        trigger_error(curl_error($ch)); 
+    } 
     curl_close($ch);
     
     return $response;
 }
+
 
 /***************************************************************************
  * Function: Refresh Access Token

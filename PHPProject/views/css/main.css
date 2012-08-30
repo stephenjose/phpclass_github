@@ -1,5 +1,5 @@
 /*
-	Website:  		Raja Responsive Design 
+	Website:  		Cycling Widgets - PHP Class Project
 	Developer:		Stephen Jose
 	Created On:
 	Revised On:
@@ -8,7 +8,7 @@
 	Purpose:
 	
 	Related Files:
-		index.html
+		index.php
 		
 */
 
@@ -104,11 +104,18 @@ header h1{
 	border-radius: 40px 40px 0 0;
 	margin-top: -40px;
 }	
+
+#main form{
+	border-bottom: 10px solid #B79A52;
+	border-radius: 0 0 40px 40px;
+	
+	
+}
 	
 #main form h1{
 	color: #E5CA85;
 	background-color: #2b2b2b;
-	border-top: 10px solid #fff;
+	border-top: 10px solid #B79A52;
 	border-radius: 40px 40px 0 0;
 	text-align: center;
 	font-size: 200%;	
@@ -122,50 +129,91 @@ header h1{
 
 #main #widgetpics{
 	margin: 0 auto;
-	border: 2px solid #fff;
 	padding: 5px;	
 	text-align: center;
 	
 }
 
 	#main #widgettitle{
-		
 		font-size: 120%;
 	}
 
 	#main #widgetpics tr{
 		float: left;
-		border-right: 2px solid #fff;
+		
 	}
 
 	#main #widgetpics td{
-		display: block;
-		margin: 5px;
+		display: block;		
+		
+		margin: 5px 20px;
+		background-color: #B79A52;
 		border: 1px solid #999;
-	}
+		border-radius: 10px;
+		
+	}	
+	
+	#main #widgetpics #image{
+		background-color: #E5CA85;
+		border: none;
+	}	
 	
 		#main #widgetpics td span{
-			font-size: 80%;
+			font-size: 70%;
 		}
 	
 	#main #widgetpics input{
 		width: 30px;
+		border-radius: 7px;		
 	}
 
 #main #contactform{
 	width: 68%;
 	margin: 0 auto;
 }	
+
+	#main #contactform label{
+		display: inline-block;
+		width: 140px;
+		font-size: 110%;
+		text-align: right;
+		padding-right: 8px;
+	}
 	
-	#main #contactform ul{
-		
-		border: 1px solid #fff;
+	#main #contactform input{
+		border-radius: 7px;	
+		width: 35%;
+	}
+	
+	#main #contactform ul{		
+		border-top: 5px solid #B79A52;
+		border-bottom: 5px solid #B79A52;
+		border-radius: 15px;
 		margin: 10px 30px;
+		padding: 10px 0;
 	}	
 	
-		#main #contactform ul>ul{
-			clear: left;
-		}	
+	#main #contactform li{
+		text-align: center;
+	}
+	
+		#main #contactform li span{			
+			display: inline-block;
+			width: 140px;
+			font-size: 110%;
+			text-align: right;
+			padding-right: 12px;
+		}
+		
+		#main #contactform li span+span{
+			text-align: left;
+			
+		}
+	
+	#main input[type="submit"]{
+		display: block;
+		margin: 10px auto;		
+	}
 		
 
 
@@ -176,8 +224,9 @@ header h1{
 		
 /* ------------------ Footer ------------------ */	 
 
-footer{
+footer{	
 	background-color: #2b2b2b;
 	text-align: center;
+
 }
 
