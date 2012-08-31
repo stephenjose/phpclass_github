@@ -22,6 +22,22 @@ ActiveRecord\Config::initialize(function($cfg)
 	
 		<h1>Job Search</h1>			
 		
+		<!-- check if jobsearch db has been updated today, and run screenscrape to update if needed -->
+		<?php	
+
+			$dLastUpdate = Update::find(1);	//pulling the lastupdate field from the active record db connection	
+		
+			if (strtotime($dLastUpdate->lastupdate) < strtotime('today')){  //strtotime converts the dates into a unix date format for like comparison
+				echo '<p> old data </p>';
+			}else{
+				echo '<p> current data </p>';
+				
+			}		
+			
+		?>
+		
+		
+		
 		<form action="." method="POST">
 			<table>			
 				<tr>

@@ -1,5 +1,9 @@
 <?php
- header("Content-Type: text/plain");
+
+//modify this function to populate database rather than echoing results
+//see code below for adding to db
+
+header("Content-Type: text/plain");
  $sIn = file_get_contents("http://www.wowjobs.ca/wowrss.aspx?q=Web+Developer&l=N2T1G8&s=&sr=25&t=30&f=r&e=&si=A&Dup=H");
  if(preg_match_all("|<item(.*)</item>|U", $sIn, $aItem)){
  	//print_r($aIn);
@@ -30,3 +34,21 @@
  	echo "nothing to display";
  }
 ?>
+
+
+
+
+
+
+//handling adding to db
+if(array_key_exists('submit', $_POST)){
+	$oPurchase = new Purchase;	//create a new object to store purchase values
+	$oPurchase->date = $_POST['date'];   //assigning the date field of the post array to the $oPurchase object variable
+	$oPurchase->purchase = $_POST['purchase'];
+	$oPurchase->price = $_POST['price'];
+	$oPurchase->save();	//save object to database
+	
+	//print_r($oPurchase);
+	//print_r is  a debugging tool that prints out all aspects of an object or variable
+}
+

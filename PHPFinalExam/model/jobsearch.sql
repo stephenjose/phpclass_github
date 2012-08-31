@@ -31,8 +31,8 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `guid` varchar(50) NOT NULL,
   `title` varchar(50) NOT NULL,
   `link` varchar(50) NOT NULL,
-  `pubDate` date NOT NULL,
-  `nextAction` varchar(50) NOT NULL,
+  `pubdate` date NOT NULL,
+  `nextaction` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -51,7 +51,7 @@ INSERT INTO `jobs` (`id`, `guid`, `title`, `link`, `pubDate`, `nextAction`) VALU
 
 CREATE TABLE IF NOT EXISTS `updates` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `lastUpdate` date NOT NULL,
+  `lastupdate` date NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
