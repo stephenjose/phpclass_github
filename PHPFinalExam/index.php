@@ -22,29 +22,33 @@ ActiveRecord\Config::initialize(function($cfg)
 	
 		<h1>Job Search</h1>			
 		
-		<table>			
-			<tr>
-				<th>POSTED DATE</th>
-				<th>JOB TITLE</th>
-				<th>LINK</th>
-				<th>NEXT ACTION</th>								
-			</tr>
-			
-			<?php foreach(Job::find('all') as $oJobs){ ?>  
+		<form action="." method="POST">
+			<table>			
 				<tr>
-					<td><?php echo date_format($oJobs->pubdate, 'Y-m-d') ?> </td>
-					<td><?php echo $oJobs->title ?> </td>	
-					<td><?php echo $oJobs->link ?> </td>
-					<td><?php echo $oJobs->nextaction ?> </td>				
-				</tr>		 
-			<?php } ?>	
+					<th>POSTED DATE</th>
+					<th>JOB TITLE</th>
+					<th>LINK</th>
+					<th>NEXT ACTION</th>
+					<th>NEXT ACTION ENTRY</th>								
+				</tr>
 				
-			<!-- <tr>
-				<td><input type="text" name="dateInput" /></td>
-				<td><input type="text" name="membersInput" /></td>
-			</tr>   -->				
-				
-		</table>	
+				<?php foreach(Job::find('all') as $oJobs){ ?>  
+					<tr>
+						<td><?php echo date_format($oJobs->pubdate, 'Y-m-d') ?> </td>
+						<td><?php echo $oJobs->title ?> </td>	
+						<td><?php echo $oJobs->link ?> </td>
+						<td><?php echo $oJobs->nextaction ?> </td>	
+						<td><input type="text" name="<?php echo $oJobs->id . 'actionentry' ?>" /></td>		
+					</tr>		 
+				<?php } ?>	
+						
+			</table>
+			
+			<input type="submit" name="submit" value="Submit" />
+			
+		</form>	
+		
+		
 		
 				
 			
