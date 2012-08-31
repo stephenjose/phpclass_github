@@ -15,7 +15,38 @@ ActiveRecord\Config::initialize(function($cfg)
 });
 /*end active record import for database connection*/
 
-
 ?>
 
-<html><body>Hello World!</body></html>
+<html>
+	<body>	
+	
+		<h1>Job Search</h1>			
+		
+		<table>			
+			<tr>
+				<th>POSTED DATE</th>
+				<th>JOB TITLE</th>
+				<th>LINK</th>
+				<th>NEXT ACTION</th>								
+			</tr>
+			
+			<?php foreach(Job::find('all') as $oJobs){ ?>  
+				<tr>
+					<td><?php echo date_format($oJobs->pubdate, 'Y-m-d') ?> </td>
+					<td><?php echo $oJobs->title ?> </td>	
+					<td><?php echo $oJobs->link ?> </td>
+					<td><?php echo $oJobs->nextaction ?> </td>				
+				</tr>		 
+			<?php } ?>	
+				
+			<!-- <tr>
+				<td><input type="text" name="dateInput" /></td>
+				<td><input type="text" name="membersInput" /></td>
+			</tr>   -->				
+				
+		</table>	
+		
+				
+			
+	</body>
+</html>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 31, 2012 at 03:49 PM
+-- Generation Time: Aug 31, 2012 at 04:24 PM
 -- Server version: 5.5.25a
 -- PHP Version: 5.4.4
 
@@ -34,7 +34,14 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `pubDate` date NOT NULL,
   `nextAction` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `guid`, `title`, `link`, `pubDate`, `nextAction`) VALUES
+(3, 'testguid', 'testtitle', 'testlink', '2012-08-01', 'testaction');
 
 -- --------------------------------------------------------
 
