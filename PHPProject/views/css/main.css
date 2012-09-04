@@ -214,6 +214,19 @@ header h1{
 		display: block;
 		margin: 10px auto;		
 	}
+#main #thanksdiv{
+	color: #E5CA85;
+	background-color: #2b2b2b;
+	padding: 10px 30px;
+	margin-bottom: 20px;
+	border-top: 10px solid #B79A52;
+	border-bottom: 10px solid #B79A52;
+	border-radius: 40px;
+	text-align: center;
+	font-size: 200%;
+}
+	
+	
 		
 
 

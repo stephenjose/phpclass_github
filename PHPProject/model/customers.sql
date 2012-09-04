@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.2
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 29, 2012 at 06:06 PM
--- Server version: 5.5.25a
--- PHP Version: 5.4.4
+-- Generation Time: Sep 04, 2012 at 03:26 AM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -34,8 +34,16 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `province` varchar(15) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(13) NOT NULL,
+  `postcode` varchar(13) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `name`, `street`, `city`, `province`, `email`, `phone`, `postcode`) VALUES
+(1, 'steve test', '', '', '', '', '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

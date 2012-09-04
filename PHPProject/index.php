@@ -96,13 +96,15 @@ ActiveRecord\Config::initialize(function($cfg)
 						Widgets!  Yes!
 					</p>
 				</section>
-				
-				<?php if(array_key_exists('submit', $_POST)){
-					include './views/orderdisplay.php';
-				}else{
-					include 'views/orderform.php';
-				}//end else
-				
+								
+				<?php 
+					if(array_key_exists('confirm', $_POST)){
+						include 'views/orderthanks.php';
+					}elseif(array_key_exists('submit', $_POST)){
+						include 'views/orderdisplay.php';
+					}else{
+						include 'views/orderform.php';
+					}//end else
 				?>
 				
 				

@@ -10,17 +10,19 @@
 			
 			<table id="widgetpics">															
 			
-				<?php foreach(widgetbundle::find('all') as $oWidgets){ ?>  
-					<tr>
-						<td id="widgettitle"><?php echo $oWidgets->type ?> </td>
-						<td id="image"><img src=<?php echo './views/images/' . $oWidgets->image ?> width="100" height="100" /> </td>
-						<td><span>Price: $</span><?php echo $oWidgets->price ?> </td>	
-						<td><label for='<?php echo $oWidgets->id . "qtyinput"?>'>qty: </label><input type="text" name='<?php echo $oWidgets->id . "qtyinput"?>' /></td>				
-					</tr>		 
+				<?php foreach(widgetbundle::find('all') as $oWidgets){   ?>
+					
+						<tr>
+							<td id="widgettitle"><?php echo $oWidgets->type ?> </td>
+							<td id="image"><img src=<?php echo './views/images/' . $oWidgets->image ?> width="100" height="100" /> </td>
+							<td><span>Price: $</span><?php echo $oWidgets->price ?> </td>	
+							<td><label for='<?php echo $oWidgets->id . "qtyinput"?>'>qty: </label><input type="text" name='<?php echo $oWidgets->id . "qtyinput"?>' /></td>				
+						</tr>	
+					
 				<?php } ?>										
 			
 			</table>
-			
+						
 			<div id="contactform">
 				<ul>
 					<li><label for="name">Name:</label><input type="text" name="name" /></li>	
